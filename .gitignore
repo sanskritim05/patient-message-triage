@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+build/
+dist/
+
+# Environment
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.aws/
+
+# IDE
+.vscode/
+.idea/
+
+# macOS
+.DS_Store
+
+# Runtime output
+audit_log.jsonl
+audit_log*.jsonl
+*.log
+
+# Blog / drafts
+blog_draft.md
+blog_images/
