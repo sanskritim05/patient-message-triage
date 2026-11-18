@@ -91,8 +91,3 @@ main.py                     Fictional scenarios and CLI runner
 .github/workflows/tests.yml Automated tests
 ```
 
-## Demo limitations
-
-This is an educational demo, not a medical device. Use fictional messages only. The keyword classifier does not understand negation, mixed clinical and admin requests, or symptoms outside its keyword list. The classifier reads the original message from state, and the hook blocks urgent replies until the care team page has run, but nothing forces the model to call `classify_message` first; an unclassified reply still requires review. The eight-word check cannot establish that a draft is complete or medically correct.
-
-The sample nurse decisions are fictional and do not arrange real callbacks. Local `.env` files, audit logs, virtual environments, caches, and the working blog draft are excluded by `.gitignore`.
