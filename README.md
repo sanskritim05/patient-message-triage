@@ -60,7 +60,7 @@ During interactive review, enter `a` to approve, `e` to replace the draft, or `r
 
 ## How it works
 
-1. `classify_message` applies keyword rules and saves the category in agent state. Urgent matches take priority over admin matches; other messages default to clinical. It classifies the original patient message, which the runner stores in agent state, rather than the copy the model passes in, because small models can truncate that copy.
+1. `classify_message` uses keyword rules to categorize the patient's message and saves the result in agent state. Urgent messages take priority over administrative messages, while all other messages are classified as clinical. It reads the original patient message stored by the runner in agent state instead of the model's copy, since smaller models may truncate the message.
 2. The agent calls tools to simulate an appointment change or urgent escalation, then drafts a reply.
 3. `NurseApprovalHook` intercepts `send_patient_reply`. Admin replies bypass review; clinical, urgent, and unclassified replies require it. Before review, urgent replies are returned to the agent until `escalate_to_care_team` has run, and drafts under eight words are returned as potentially truncated.
 4. The runner displays each interrupt and resumes the same agent with the nurse's decision. Approval allows the draft, an edit replaces it, and rejection cancels the send with feedback for revision.
